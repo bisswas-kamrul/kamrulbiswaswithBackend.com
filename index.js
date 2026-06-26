@@ -26,14 +26,25 @@ app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 465,
+    //   secure: false,
+    //   auth: {
+    //     user: "kamrulnahid01710294440@gmail.com",
+    //     pass: "asdaewwlvajpeczj",
+    //   },
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS,
+    //   },
+    // });
+
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: false,
-      //   auth: {
-      //     user: "kamrulnahid01710294440@gmail.com",
-      //     pass: "asdaewwlvajpeczj",
-      //   },
+      secure: true,
+      family: 4,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
