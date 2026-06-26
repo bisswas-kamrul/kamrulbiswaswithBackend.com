@@ -14,7 +14,7 @@ app.use(
       "https://kamrulbiswaswithbackend-com.onrender.com",
     ],
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 
@@ -27,9 +27,10 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "smtp.gmail.com",
       port: 587,
       secure: false,
+      family: 4,
       //   auth: {
       //     user: "kamrulnahid01710294440@gmail.com",
       //     pass: "asdaewwlvajpeczj",
