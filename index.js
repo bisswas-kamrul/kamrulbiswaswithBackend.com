@@ -40,18 +40,18 @@ app.post("/send-email", async (req, res) => {
     // },
     // });
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      connectionTimeout: 30000,
-      greetingTimeout: 30000,
-      socketTimeout: 30000,
-    });
+ const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+await transporter.verify();
+console.log("SMTP OK");
 
     await transporter.sendMail({
       from: '"Portfolio Contact Form" <kamrulnahid01710294440@gmail.com>',
